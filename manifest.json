@@ -1,6 +1,6 @@
 {
   "name": "Astronomical Scientific Calculator",
-  "short_name": "Astronomical Scientific Calculator",
+  "short_name": "AstroCalc",
   "id": "./",
   "start_url": "./index.html",
   "scope": "./",

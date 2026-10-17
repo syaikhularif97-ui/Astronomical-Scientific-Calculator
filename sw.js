@@ -1,5 +1,5 @@
 
-const CACHE_VERSION = 'astrocalc-v7';           
+const CACHE_VERSION = 'astrocalc-v8';           
 const CACHE_PREFIX  = 'astrocalc-';             
 const NETWORK_TIMEOUT_MS = 5000;                
 const FILES = [

@@ -2507,7 +2507,7 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
             document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sidebar.classList.contains('active')) { menuButton.classList.remove('active'); sidebar.classList.remove('active'); sidebarOverlay.classList.remove('active'); } });
 
             // PANEL FALAK
-            const falakData = {
+                        const falakData = {
                 dataDasar: {
                     title: "0. Data Dasar",
                     items: {
@@ -2517,7 +2517,7 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                                 {
                                     title: "Lintang Tempat",
                                     formula: null,
-                                    help: "Contoh: -6°51'50,22\". Ketik nilainya di kalkulator, lalu klik Simpan ke LT.",
+                                    help: "Ketik nilai lintang tempat di kalkulator dalam format DMS, lalu klik Simpan ke LT.",
                                     storeVar: "LT",
                                     storeLabel: "Lintang Tempat"
                                 }
@@ -2529,19 +2529,19 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                                 {
                                     title: "Bujur Tempat",
                                     formula: null,
-                                    help: "Contoh: 112°21'27,8\" . Ketik nilainya di kalkulator, lalu klik Simpan ke BT.",
+                                    help: "Ketik nilai bujur tempat di kalkulator dalam format DMS, lalu klik Simpan ke BT.",
                                     storeVar: "BT",
                                     storeLabel: "Bujur Tempat"
                                 }
                             ]
                         },
-                       bujurDaerah: {
+                        bujurDaerah: {
                             title: "Bujur Daerah (BD)",
                             steps: [
                                 {
                                     title: "Bujur Daerah",
                                     formula: null,
-                                    help: "Pilih zona waktu Anda dengan tombol di bawah, atau ketik manual nilai bujur (105 / 120 / 135) di kalkulator lalu klik Simpan ke BD.",
+                                    help: "Pilih zona waktu Anda dengan tombol di bawah, atau ketik manual nilai bujur di kalkulator lalu klik Simpan ke BD.",
                                     storeVar: "BD",
                                     storeLabel: "Bujur Daerah",
                                     quickValues: [
@@ -2558,7 +2558,7 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                                 {
                                     title: "Deklinasi Matahari",
                                     formula: null,
-                                    help: "Contoh: -7°46'41\". Ketik nilainya di kalkulator, lalu klik Simpan ke DM.",
+                                    help: "Ketik nilai deklinasi Matahari di kalkulator dalam format DMS, lalu klik Simpan ke DM.",
                                     storeVar: "DM",
                                     storeLabel: "Deklinasi Matahari"
                                 }
@@ -2570,7 +2570,7 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                                 {
                                     title: "Equation of Time",
                                     formula: null,
-                                    help: "Contoh: -0j 12m 31d. Ketik nilainya, lalu klik Simpan ke e.",
+                                    help: "Ketik nilai Equation of Time di kalkulator, lalu klik Simpan ke e.",
                                     storeVar: "e",
                                     storeLabel: "Equation of Time"
                                 }
@@ -2596,7 +2596,7 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                         }
                     }
                 },
-                                waktuSalat: {
+                waktuSalat: {
                     title: "I. Waktu Awal Salat",
                     sub: "Zuhur, Ashar, Magrib, Isya, Subuh, Terbit, Dhuha, Imsak",
                     items: {
@@ -2611,7 +2611,7 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                             title: "Ashar",
                             steps: [
                                 { title: "KWD", formula: "(BD - BT) / 15", help: "BD = bujur daerah. BT = bujur tempat.", storeVar: "KWD", storeLabel: "KWD" },
-                                { title: "ZM", formula: "abs(LT - DM)", help: "LT = lintang tempat. DM = deklinasi Matahari. ZM harga MUTLAK, jadi selalu positif.\n\nPakai fungsi abs() agar hasil minus otomatis dijadikan positif.\nContoh: LT = -6°51' → abs(-6°51' - (-7°46')) = abs(0°55') = 0°55'.", storeVar: "ZM", storeLabel: "ZM" },
+                                { title: "ZM", formula: "abs(LT - DM)", help: "LT = lintang tempat. DM = deklinasi Matahari. ZM harga MUTLAK, jadi selalu positif.\n\nPakai fungsi abs() agar hasil minus otomatis dijadikan positif.", storeVar: "ZM", storeLabel: "ZM" },
                                 { title: "h/Tinggi Matahari Ashar", formula: "tan⁻¹ (1/tan ZM + 1)", help: "Rumus ini untuk Mazhab Syafi'i. Untuk Mazhab Hanafi ganti +1 menjadi +2.", storeVar: "h_Ashar", storeLabel: "Tinggi Ashar" },
                                 { title: "Sudut Waktu Ashar", formula: "cos⁻¹ (-tan LT tan DM + sin h_Ashar / cos LT / cos DM)", help: "PENTING: Nilai h_Ashar (tinggi Ashar) HARUS diisi MANUAL — tidak ada tombol simpan otomatis untuk h. Ganti teks h_Ashar pada rumus dengan hasil langkah 'Tinggi Ashar' sebelumnya. LT = lintang tempat. DM = deklinasi Matahari. Hasil t dalam derajat; t/15 untuk jam.", storeVar: "t_Ashar", storeLabel: "Sudut Waktu Ashar" },
                                 { title: "Waktu Ashar", formula: "12 - e + t_Ashar/15 + KWD + i", help: "t_Ashar = sudut waktu. e = equation of time. i = ihtiyat.", storeVar: "W_Ashar", storeLabel: "Waktu Ashar" }
@@ -2621,7 +2621,7 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                             title: "Magrib",
                             steps: [
                                 { title: "KWD", formula: "(BD - BT) / 15", help: "BD = bujur daerah. BT = bujur tempat.", storeVar: "KWD", storeLabel: "KWD" },
-                                { title: "Sudut Waktu Magrib", formula: "cos⁻¹ (-tan LT tan DM + sin h_Magrib / cos LT / cos DM)", help: "PENTING: Nilai h_Magrib (tinggi Matahari saat Magrib) HARUS diisi MANUAL — tidak ada tombol simpan otomatis untuk h. Ganti teks h_Magrib pada rumus dengan angka tinggi Magrib (misalnya -1°). LT = lintang tempat. DM = deklinasi Matahari. Hasil t derajat; t/15 untuk jam.", storeVar: "t_Magrib", storeLabel: "Sudut Waktu Magrib" },
+                                { title: "Sudut Waktu Magrib", formula: "cos⁻¹ (-tan LT tan DM + sin h_Magrib / cos LT / cos DM)", help: "PENTING: Nilai h_Magrib (tinggi Matahari saat Magrib) HARUS diisi MANUAL — tidak ada tombol simpan otomatis untuk h. Ganti teks h_Magrib pada rumus dengan angka tinggi Magrib. LT = lintang tempat. DM = deklinasi Matahari. Hasil t derajat; t/15 untuk jam.", storeVar: "t_Magrib", storeLabel: "Sudut Waktu Magrib" },
                                 { title: "Waktu Magrib", formula: "12 - e + t_Magrib/15 + KWD + i", help: "t_Magrib = sudut waktu. e = equation of time. i = ihtiyat.", storeVar: "W_Magrib", storeLabel: "Waktu Magrib" }
                             ]
                         },
@@ -2629,23 +2629,29 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                             title: "Isya",
                             steps: [
                                 { title: "KWD", formula: "(BD - BT) / 15", help: "BD = bujur daerah. BT = bujur tempat.", storeVar: "KWD", storeLabel: "KWD" },
-                                { title: "Sudut Waktu Isya", formula: "cos⁻¹ (-tan LT tan DM + sin h_Isya / cos LT / cos DM)", help: "PENTING: Nilai h_Isya (tinggi Isya) HARUS diisi MANUAL — tidak ada tombol simpan otomatis untuk h. Ganti teks h_Isya pada rumus dengan angka tinggi Isya (misalnya -18°). LT = lintang tempat. DM = deklinasi Matahari. Hasil t derajat; t/15 untuk jam.", storeVar: "t_Isya", storeLabel: "Sudut Waktu Isya" },
+                                { title: "Sudut Waktu Isya", formula: "cos⁻¹ (-tan LT tan DM + sin h_Isya / cos LT / cos DM)", help: "PENTING: Nilai h_Isya (tinggi Isya) HARUS diisi MANUAL — tidak ada tombol simpan otomatis untuk h. Ganti teks h_Isya pada rumus dengan angka tinggi Isya. LT = lintang tempat. DM = deklinasi Matahari. Hasil t derajat; t/15 untuk jam.", storeVar: "t_Isya", storeLabel: "Sudut Waktu Isya" },
                                 { title: "Waktu Isya", formula: "12 - e + t_Isya/15 + KWD + i", help: "t_Isya = sudut waktu. e = equation of time. i = ihtiyat.", storeVar: "W_Isya", storeLabel: "Waktu Isya" }
                             ]
                         },
-                        subuh: {
+                         subuh: {
                             title: "Subuh",
                             steps: [
                                 { title: "KWD", formula: "(BD - BT) / 15", help: "BD = bujur daerah. BT = bujur tempat.", storeVar: "KWD", storeLabel: "KWD" },
-                                { title: "Sudut Waktu Subuh", formula: "cos⁻¹ (-tan LT tan DM + sin h_Subuh / cos LT / cos DM)", help: "PENTING: Nilai h_Subuh (tinggi Subuh) HARUS diisi MANUAL — tidak ada tombol simpan otomatis untuk h. Ganti teks h_Subuh pada rumus dengan angka tinggi Subuh (misalnya -20°). LT = lintang tempat. DM = deklinasi Matahari. Hasil t derajat; t/15 untuk jam.", storeVar: "t_Subuh", storeLabel: "Sudut Waktu Subuh" },
+                                { title: "Sudut Waktu Subuh", formula: "cos⁻¹ (-tan LT tan DM + sin h_Subuh / cos LT / cos DM)", help: "PENTING: Nilai h_Subuh (tinggi Subuh) HARUS diisi MANUAL — tidak ada tombol simpan otomatis untuk h. Ganti teks h_Subuh pada rumus dengan angka tinggi Subuh. LT = lintang tempat. DM = deklinasi Matahari. Hasil t derajat; t/15 untuk jam.", storeVar: "t_Subuh", storeLabel: "Sudut Waktu Subuh" },
                                 { title: "Waktu Subuh", formula: "12 - e - t_Subuh/15 + KWD + i", help: "t_Subuh = sudut waktu. e = equation of time. i = ihtiyat.", storeVar: "W_Subuh", storeLabel: "Waktu Subuh" }
+                            ]
+                        },
+                        imsak: {
+                            title: "Imsak",
+                            steps: [
+                                { title: "Imsak", formula: "W_Subuh - 0°10", help: "Hitung dulu waktu Subuh, lalu ganti W_Subuh dengan angka waktu Subuh.", storeVar: "W_Imsak", storeLabel: "Waktu Imsak" }
                             ]
                         },
                         terbit: {
                             title: "Terbit / Syuruq",
                             steps: [
                                 { title: "KWD", formula: "(BD - BT) / 15", help: "BD = bujur daerah. BT = bujur tempat.", storeVar: "KWD", storeLabel: "KWD" },
-                                { title: "Sudut Waktu Terbit", formula: "cos⁻¹ (-tan LT tan DM + sin h_Terbit / cos LT / cos DM)", help: "PENTING: Nilai h_Terbit (tinggi Terbit) HARUS diisi MANUAL — tidak ada tombol simpan otomatis untuk h. Ganti teks h_Terbit pada rumus dengan angka tinggi Terbit (misalnya -1°). LT = lintang tempat. DM = deklinasi Matahari. Hasil t derajat; t/15 untuk jam.", storeVar: "t_Terbit", storeLabel: "Sudut Waktu Terbit" },
+                                { title: "Sudut Waktu Terbit", formula: "cos⁻¹ (-tan LT tan DM + sin h_Terbit / cos LT / cos DM)", help: "PENTING: Nilai h_Terbit (tinggi Terbit) HARUS diisi MANUAL — tidak ada tombol simpan otomatis untuk h. Ganti teks h_Terbit pada rumus dengan angka tinggi Terbit. LT = lintang tempat. DM = deklinasi Matahari. Hasil t derajat; t/15 untuk jam.", storeVar: "t_Terbit", storeLabel: "Sudut Waktu Terbit" },
                                 { title: "Waktu Terbit", formula: "12 - e - t_Terbit/15 + KWD - i", help: "t_Terbit = sudut waktu. e = equation of time. i = ihtiyat.", storeVar: "W_Terbit", storeLabel: "Waktu Terbit" }
                             ]
                         },
@@ -2653,14 +2659,8 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                             title: "Dhuha",
                             steps: [
                                 { title: "KWD", formula: "(BD - BT) / 15", help: "BD = bujur daerah. BT = bujur tempat.", storeVar: "KWD", storeLabel: "KWD" },
-                                { title: "Sudut Waktu Dhuha", formula: "cos⁻¹ (-tan LT tan DM + sin h_Dhuha / cos LT / cos DM)", help: "PENTING: Nilai h_Dhuha (tinggi Dhuha) HARUS diisi MANUAL — tidak ada tombol simpan otomatis untuk h. Ganti teks h_Dhuha pada rumus dengan angka tinggi Dhuha (misalnya 4.5°). LT = lintang tempat. DM = deklinasi Matahari. Hasil t derajat; t/15 untuk jam.", storeVar: "t_Dhuha", storeLabel: "Sudut Waktu Dhuha" },
+                                { title: "Sudut Waktu Dhuha", formula: "cos⁻¹ (-tan LT tan DM + sin h_Dhuha / cos LT / cos DM)", help: "PENTING: Nilai h_Dhuha (tinggi Dhuha) HARUS diisi MANUAL — tidak ada tombol simpan otomatis untuk h. Ganti teks h_Dhuha pada rumus dengan angka tinggi Dhuha. LT = lintang tempat. DM = deklinasi Matahari. Hasil t derajat; t/15 untuk jam.", storeVar: "t_Dhuha", storeLabel: "Sudut Waktu Dhuha" },
                                 { title: "Waktu Dhuha", formula: "12 - e - t_Dhuha/15 + KWD + i", help: "t_Dhuha = sudut waktu. e = equation of time. i = ihtiyat.", storeVar: "W_Dhuha", storeLabel: "Waktu Dhuha" }
-                            ]
-                        },
-                        imsak: {
-                            title: "Imsak",
-                            steps: [
-                                { title: "Imsak", formula: "W_Subuh - 0°10", help: "Hitung dulu waktu Subuh, lalu ganti W_Subuh dengan angka waktu Subuh.", storeVar: "W_Imsak", storeLabel: "Waktu Imsak" }
                             ]
                         }
                     }
@@ -2676,7 +2676,7 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                                 { title: "Mencari Nilai b / Jarak Kutub Utara ke Lintang Ka'bah", formula: "90° − LK", help: "LK default = 21° 25' 20.99\". Nilai ini sudah otomatis tersimpan, tinggal ketik LK di kalkulator.", storeVar: "AzK_b", storeLabel: "Nilai b (Kiblat)" },
                                 { title: "Mencari Nilai C/ Selisih Bujur", formula: "BT − BK", help: "BT = Bujur Tempat, BK = 39° 49' 34.33\". Nilai BK ini sudah otomatis tersimpan, tinggal ketik BK di kalkulator.", storeVar: "AzK_C", storeLabel: "Selisih Bujur" },
                                 { title: "Mencari Azimut Kiblat (Q)", formula: "tan⁻¹(tan LK × cos LT × 1 ÷ sin AzK_C − sin LT × 1 ÷ tan AzK_C )", help: "Gunakan nilai LK, LT, dan AzK_C.", storeVar: "AzK_Q", storeLabel: "Azimut Kiblat (Q)" },
-                                { title: "Konversi Azimut Kiblat", formula: "270° + AzK_Q", help: "Contoh: 270° + 24°1'45.03\" = 294°01'45.03\".", storeVar: "UTSB", storeLabel: "UTSB" }
+                                { title: "Konversi Azimut Kiblat", formula: "270° + AzK_Q", help: "Hasil akhir berupa azimut kiblat yang diukur dari titik Utara searah jarum jam.", storeVar: "UTSB", storeLabel: "UTSB" }
                             ]
                         },
                         rasdQiblahHarian: {
@@ -2698,27 +2698,23 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                 awalBulan: {
                     title: "IV. Awal Bulan Qamariyah",
                     items: {
-
                         sabaq: {
                             title: "Sabaq Matahari & Sabaq Bulan",
-
                             steps: [
                                 {
                                     title: "Sabaq Matahari (SM)",
                                     storeVar: "SM",
                                     storeLabel: "Sabaq Matahari",
-                                    help: "Rumus:\nSM = ELM Jam 01 − ELM Jam 24.\n\n Contoh:\n ELM Jam 01 GMT = 339°41'23\"\n dan ELM Jam 24 GMT = 339°38'52.\"\n\nCara kalkulator:\n1. Ketik: 339°41'23\" − 339°38'52\"\n2. Tekan = , lalu SHIFT+°'″\n3. Hasil SM = 0°02'31\"\n\nCatat 0°02'31\" untuk dipakai di langkah Ijtimak."
+                                    help: "Rumus:\nSM = ELM Jam 01 − ELM Jam 24.\n\nELM Jam 01 adalah ELM pukul 01:00 GMT, dan ELM Jam 24 adalah ELM pukul 24:00 GMT (hari berikutnya).\n\nCara kalkulator:\n1. Ketik: ELM_01° − ELM_24° (dalam format DMS)\n2. Tekan =\n3. Tekan SHIFT+°'″ untuk konversi ke DMS\n4. Klik Simpan ke SM\n\nCatat nilai SM untuk dipakai di langkah Ijtimak."
                                 },
                                 {
                                     title: "Sabaq Bulan (SB)",
-
                                     storeVar: "SB",
                                     storeLabel: "Sabaq Bulan",
-                                    help: "Rumus:\nSB = ALB Jam 01 − ALB Jam 24.\n\n Contoh:\n ALB Jam 01 GMT = 339°49'0\"\n ALB Jam 24 GMT = 339°12'27.\"\n\nCara kalkulator:\n1. Ketik: 339°49'0\" − 339°12'27\"\n2. Tekan = , lalu SHIFT+°'″\n3. Hasil SB = 0°36'33\"\n\nCatat 0°36'33\" untuk dipakai di langkah Ijtimak."
+                                    help: "Rumus:\nSB = ALB Jam 01 − ALB Jam 24.\n\nALB Jam 01 adalah ALB pukul 01:00 GMT, dan ALB Jam 24 adalah ALB pukul 24:00 GMT (hari berikutnya).\n\nCara kalkulator:\n1. Ketik: ALB_01° − ALB_24° (dalam format DMS)\n2. Tekan =\n3. Tekan SHIFT+°'″ untuk konversi ke DMS\n4. Klik Simpan ke SB\n\nCatat nilai SB untuk dipakai di langkah Ijtimak."
                                 }
                             ]
                         },
-
                         ijtimak: {
                             title: "Saat Ijtimak",
                             sub: "Waktu terjadinya konjungsi",
@@ -2728,11 +2724,10 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                                     formula: "FIB Terkecil + (ELM − ALB) ÷ (SB − SM) + 7",
                                     storeVar: "IJT",
                                     storeLabel: "Saat Ijtimak",
-                                    help: "Keterangan simbol:\nFIB = jam FIB (24).\n ELM = ELM pukul 20:00 GMT = 339°38'52.\"\n ALB = ALB pukul 20:00 GMT = 339°12'27\"\n. SB = Sabaq Bulan = 0°36'33\" (dari langkah 2)\n. SM = Sabaq Matahari = 0°02'31\" (dari langkah 1).\n\nSubstitusi siap hitung:\n24 + (339°38'52\" − 339°12'27\") ÷ (0°36'33\" − 0°02'31\") + 7\n\nLangkah:\n1. Klik 'Gunakan Rumus'\n2. Ganti tiap simbol sesuai daftar di atas\n3. Tekan =\n4. Hasil: 31j 46m 34,32d\n5. Karena 31j − 24j = 7j, ijtimak pukul 07:47 WIB (dibulatkan)."
+                                    help: "Keterangan simbol:\n• FIB = jam FIB terdekat sebelum ijtimak\n• ELM = ELM pada jam FIB\n• ALB = ALB pada jam FIB\n• SB = Sabaq Bulan (dari langkah 2)\n• SM = Sabaq Matahari (dari langkah 1)\n\nLangkah:\n1. Klik 'Gunakan Rumus'\n2. Ganti tiap simbol dengan nilai masing-masing\n3. Tekan =\n4. Hasil dalam jam desimal. Jika hasil ≥ 24 jam, kurangi 24 untuk mendapat jam WIB hari berikutnya."
                                 }
                             ]
                         },
-
                         terbenamMatahari: {
                             title: "Sudut Waktu & Terbenam Matahari",
                             sub: "Menentukan waktu Matahari terbenam",
@@ -2740,21 +2735,21 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                                 {
                                     title: "Dipt (Kerendahan Ufuk)",
                                     formula: "1.76√mdpl/ 60",
-                                    help: "Keterangan simbol:\n• mdpl = ketinggian tempat dari permukaan laut (meter)\n• Angka 1.76 adalah konstanta empiris kerendahan ufuk\n\nCara kalkulator:\n1. Klik 'Gunakan Rumus'\n2. Ganti 'mdpl' dengan angka ketinggian tempat, contoh: 115\n   → 1.76√115/ 60\n3. Tekan =\n4. Tekan SHIFT+°'″ untuk konversi ke format DMS\n\nContoh:\n1.76 × √115 ÷ 60 = 0°18'53,89\"\n\n>>> Catat hasil Dipt ini untuk dipakai di langkah berikutnya (H Matahari).",
+                                    help: "Keterangan simbol:\n• mdpl = ketinggian tempat dari permukaan laut (meter)\n• Angka 1.76 adalah konstanta empiris kerendahan ufuk\n\nCara kalkulator:\n1. Klik 'Gunakan Rumus'\n2. Ganti 'mdpl' dengan angka ketinggian tempat\n3. Tekan =\n4. Tekan SHIFT+°'″ untuk konversi ke format DMS\n5. Klik Simpan ke Dipt\n\nCatat hasil Dipt ini untuk dipakai di langkah berikutnya (H Matahari).",
                                     storeVar: "Dipt",
                                     storeLabel: "Dipt (Kerendahan Ufuk)"
                                 },
                                 {
                                     title: "H Matahari (Tinggi Matahari saat Terbenam)",
                                     formula: "0 − SDM − Refraksi − Dipt",
-                                    help: "Keterangan simbol:\n• SDM = semi diameter Matahari = 0°16' (atau 0.2667°)\n• Refraksi = 0°34'30\" (refraksi standar saat Matahari di ufuk)\n• Dipt = kerendahan ufuk (hasil dari langkah sebelumnya)\n\nSubstitusi siap hitung (contoh Dipt = 0°18'53,89\"):\n0 − 0°16' − 0°34'30\" − 0°18'53,89\"\n\nCara kalkulator:\n1. Klik 'Gunakan Rumus'\n2. Ganti SDM, Refraksi, dan Dipt dengan nilai masing-masing\n3. Tekan =\n4. Tekan SHIFT+°'″ untuk konversi ke format DMS\n\n>>> Catat hasil H ini untuk dipakai di langkah berikutnya (Sudut Waktu Matahari).",
+                                    help: "Keterangan simbol:\n• SDM = semi diameter Matahari (gunakan nilai standar 0°16')\n• Refraksi = refraksi standar saat Matahari di ufuk (0°34'30\")\n• Dipt = kerendahan ufuk (hasil dari langkah sebelumnya)\n\nCara kalkulator:\n1. Klik 'Gunakan Rumus'\n2. Ganti SDM, Refraksi, dan Dipt dengan nilai masing-masing\n3. Tekan =\n4. Tekan SHIFT+°'″ untuk konversi ke format DMS\n\nCatat hasil H ini untuk dipakai di langkah berikutnya (Sudut Waktu Matahari).",
                                     storeVar: "HMt",
                                     storeLabel: "H Matahari"
                                 },
                                 {
                                     title: "Sudut Waktu Matahari (TM)",
                                     formula: "cos⁻¹( −tan LT × tan DM + sin H ÷ cos LT ÷ cos DM )",
-                                    help: "Keterangan:\n• LT = lintang tempat = −6°51'50,22\"\n• DM = deklinasi Matahari = −7°46'41\"\n• H = tinggi Matahari saat terbenam (hasil dari langkah H Matahari di atas)\n\nSubstitusi siap hitung:\ncos⁻¹( −tan(−6°51'50,22\") × tan(−7°46'41\") + sin(H) ÷ cos(−6°51'50,22\") ÷ cos(−7°46'41\") )\n\nSetelah = , tekan SHIFT+°'″ .\nTM/15 = jam (dibagi 15).",
+                                    help: "Keterangan:\n• LT = lintang tempat\n• DM = deklinasi Matahari\n• H = tinggi Matahari saat terbenam (hasil dari langkah H Matahari di atas)\n\nSetelah = , tekan SHIFT+°'″ .\nTM/15 = jam (dibagi 15).",
                                     storeVar: "TM",
                                     storeLabel: "Sudut Waktu Matahari"
                                 },
@@ -2763,43 +2758,42 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                                     formula: "12 − e + KWD + tm ÷ 15",
                                     storeVar: "WTM",
                                     storeLabel: "Waktu Terbenam Matahari",
-                                    help: "Keterangan:\n• ET = equation of time = −0j 12m 31d\n• KWD = koreksi waktu daerah = −0j 29m 25,85d\n• TM = sudut waktu Matahari (hasil langkah sebelumnya)\n• TM/15 = konversi sudut ke jam\n\nSubstitusi siap hitung:\n12 − (−0j 12m 31d) + (−0j 29m 25,85d) + TM/15\n\nHasil: Waktu Terbenam Matahari dalam WIB.\n\n>>> CATAT hasil waktu GMT-nya (dikurangi 7 jam) — ini dipakai untuk menentukan jam interpolasi di langkah berikutnya."
+                                    help: "Keterangan:\n• e = equation of time\n• KWD = koreksi waktu daerah\n• TM = sudut waktu Matahari (hasil langkah sebelumnya)\n• TM/15 = konversi sudut ke jam\n\nHasil: Waktu Terbenam Matahari dalam WIB.\n\nCATAT hasil waktu GMT-nya (dikurangi 7 jam) — ini dipakai untuk menentukan jam interpolasi di langkah berikutnya."
                                 }
                             ]
                         },
-
                         interpolasi: {
                             title: "Interpolasi AR & Deklinasi",
                             sub: "Data posisi saat Matahari terbenam",
                             steps: [
-                                {
+                                
+                                   {
                                     title: "AR Matahari (saat terbenam)",
-
                                     formula: "A − (A − B) × C ÷ 1",
-                                    help: "MENGAPA JAM 10 & JAM 11?\n Contoh: Langkah sebelumnya menghasilkan waktu terbenam = 10j 50m 39,89d GMT. Data ephemeris hanya tersedia per jam bulat, jadi untuk mendapat AR pada 10:50:39,89 kita harus menginterpolasi antara dua jam yang mengapit:\n• Jam A = jam SEBELUM terbenam = jam 10:00 GMT\n• Jam B = jam SESUDAH terbenam = jam 11:00 GMT\n\nCATATAN: Jam A dan Jam B TIDAK TETAP. Kalau di lokasi/tanggal lain waktu terbenam jatuh pukul 09:30 GMT, maka Jam A = jam 09:00 dan Jam B = jam 10:00. Jadi angka 10 dan 11 di sini murni konsekuensi dari waktu terbenam yang sudah dihitung.\n\nKeterangan simbol:\n• A = AR Matahari pukul 10:00 GMT = 341°35'46\"\n• B = AR Matahari pukul 11:00 GMT = 341°38'6\"\n• C = fraksi waktu dari Jam A ke terbenam = 10:50:39,89 − 10:00 = 0j 50m 39,89d\n\nSubstitusi siap hitung:\n341°35'46\" − (341°35'46\" − 341°38'6\") × 0j 50m 39,89d ÷ 1\n\nSetelah = , tekan SHIFT+°'″ .\nHasil: 341°37'44,2. Atau bisa juga pakai tombol INTERP\"", storeVar: "ARM", storeLabel: "AR Matahari"
+                                    help: "Atau bisa juga pakai tombol INTERP\n\nMENGAPA JAM A & JAM B?\nJam A dan Jam B adalah dua jam bulat GMT yang mengapit waktu terbenam. Contoh: jika waktu terbenam jatuh pukul 10:50:39,89 GMT, maka Jam A = jam 10:00 GMT (sebelum terbenam) dan Jam B = jam 11:00 GMT (sesudah terbenam). Kalau waktu terbenam berbeda, jam A/B juga menyesuaikan.\n\nKeterangan simbol:\n• A = AR Matahari pada Jam A\n• B = AR Matahari pada Jam B\n• C = fraksi waktu dari Jam A ke terbenam (dalam format jam desimal)\n\nCARA MENDAPATKAN NILAI C:\nNilai C adalah SELISIH antara WAKTU TERBENAM dengan JAM A.\nRumus: C = Waktu Terbenam − Jam A\n\nContoh jika terbenam Matahari = 10j 50m 39,89d GMT dan Jam A = 10j 00m 00d GMT:\nC = 10j 50m 39,89d − 10j 00m 00d = 0j 50m 39,89d\n\nJadi C = 0j 50m 39,89d artinya Matahari terbenam 50 menit 39,89 detik setelah Jam A.\n\nContoh lengkap (terbenam 10j 50m 39,89d GMT):\n• A = AR Matahari pukul 10:00 GMT = 341°35'46\"\n• B = AR Matahari pukul 11:00 GMT = 341°38'6\"\n• C = 10j 50m 39,89d − 10j 00m 00d = 0j 50m 39,89d\n\nContoh substitusi siap hitung:\n341°35'46\" − (341°35'46\" − 341°38'6\") × 0j 50m 39,89d ÷ 1\n\nSetelah = , tekan SHIFT+°'″ .\nHasil: 341°37'44,2\"\n\nKlik Simpan ke ARM.",
+                                    storeVar: "ARM", storeLabel: "AR Matahari"
                                 },
                                 {
                                     title: "AR Bulan (saat terbenam)",
-
                                     formula: "A − (A − B) × C ÷ 1",
-                                    help: "MENGAPA JAM 10 & JAM 11?\nSama seperti AR Matahari — waktu terbenam = 10j 50m 39,89d GMT, jadi Jam A = 10:00 dan Jam B = 11:00 GMT (dua jam terdekat yang mengapit). Jika waktu terbenam berbeda, Jam A/B juga berubah.\n\nKeterangan simbol:\n• A = AR Bulan pukul 10:00 GMT = 346°54'34\"\n• B = AR Bulan pukul 11:00 GMT = 347°27'22\"\n• C = fraksi waktu dari Jam A ke terbenam = 0j 50m 39,89d\n\nSubstitusi siap hitung:\n346°54'34\" − (346°54'34\" − 347°27'22\") × 0j 50m 39,89d ÷ 1\n\nHasil: 347°22'15,8. Atau bisa juga pakai tombol INTERP\"", storeVar: "ARB", storeLabel: "AR Bulan"
+                                    help: "Atau bisa juga pakai tombol INTERP\n\nMENGAPA JAM A & JAM B?\nSama seperti AR Matahari — Jam A dan Jam B adalah dua jam bulat GMT yang mengapit waktu terbenam. Jika waktu terbenam berbeda, Jam A/B juga menyesuaikan.\n\nKeterangan simbol:\n• A = AR Bulan pada Jam A\n• B = AR Bulan pada Jam B\n• C = fraksi waktu dari Jam A ke terbenam\n\nContoh (terbenam 10j 50m 39,89d GMT):\n• A = AR Bulan pukul 10:00 GMT = 346°54'34\"\n• B = AR Bulan pukul 11:00 GMT = 347°27'22\"\n• C = 0j 50m 39,89d\n\nContoh substitusi siap hitung:\n346°54'34\" − (346°54'34\" − 347°27'22\") × 0j 50m 39,89d ÷ 1\n\nSetelah = , tekan SHIFT+°'″ .\nHasil: 347°22'15,8\"\n\nKlik Simpan ke ARB.",
+                                    storeVar: "ARB", storeLabel: "AR Bulan"
                                 },
                                 {
                                     title: "Deklinasi Bulan (DB)",
-
                                     formula: "A − (A − B) × C ÷ 1",
-                                    help: "MENGAPA JAM 10 & JAM 11?\nContoh: Waktu terbenam = 10j 50m 39,89d GMT → Jam A = 10:00, Jam B = 11:00 GMT. Ini konsekuensi, bukan aturan tetap.\n\nKeterangan simbol:\n• A = deklinasi Bulan pukul 10:00 GMT = −6°48'28\"\n• B = deklinasi Bulan pukul 11:00 GMT = −6°31'9\"\n• C = fraksi waktu dari Jam A ke terbenam = 0j 50m 39,89d\n\nSubstitusi siap hitung:\n(−6°48'28\") − ((−6°48'28\") − (−6°31'9\")) × 0j 50m 39,89d ÷ 1\n\nHasil: DB = −6°33'50,65\"", storeVar: "DB", storeLabel: "Deklinasi Bulan"
+                                    help: "Atau bisa juga pakai tombol INTERP\n\nMENGAPA JAM A & JAM B?\nJam A dan Jam B adalah dua jam bulat GMT yang mengapit waktu terbenam. Ini konsekuensi dari waktu terbenam, bukan aturan tetap.\n\nKeterangan simbol:\n• A = deklinasi Bulan pada Jam A\n• B = deklinasi Bulan pada Jam B\n• C = fraksi waktu dari Jam A ke terbenam\n\nContoh (terbenam 10j 50m 39,89d GMT):\n• A = DB pukul 10:00 GMT = −6°48'28\"\n• B = DB pukul 11:00 GMT = −6°31'9\"\n• C = 0j 50m 39,89d\n\nContoh substitusi siap hitung:\n−6°48'28\" − (−6°48'28\" − (−6°31'9\")) × 0j 50m 39,89d ÷ 1\n\nSetelah = , tekan SHIFT+°'″ .\nHasil: −6°33'50,65\"\n\nKlik Simpan ke DB.",
+                                    storeVar: "DB", storeLabel: "Deklinasi Bulan"
                                 },
-                                                          {
+                                {
                                     title: "Sudut Waktu Bulan (TB)",
                                     formula: "ARM − ARB + TM",
                                     storeVar: "TB",
                                     storeLabel: "Sudut Waktu Bulan",
-                                    help: "Keterangan:\n ARM = AR Matahari saat terbenam = 341°37'44,2.\"\n ARB = AR Bulan saat terbenam = 347°22'15,8.\"\n TM = sudut waktu Matahari = 91°53'41,03.\"\n\n Contoh:\n341°37'44,2\" − 347°22'15,8\" + 91°53'41,03\"\n\nHasil: TB = 86°9'9,43\""
+                                    help: "Keterangan:\n• ARM = AR Matahari saat terbenam (langkah sebelumnya)\n• ARB = AR Bulan saat terbenam (langkah sebelumnya)\n• TM = sudut waktu Matahari (langkah sebelumnya)\n\nContoh:\n• ARM = 341°37'44,2\"\n• ARB = 347°22'15,8\"\n• TM = 91°53'41,03\"\n\nContoh substitusi siap hitung:\n341°37'44,2\" − 347°22'15,8\" + 91°53'41,03\"\n\nSetelah = , tekan SHIFT+°'″ .\nHasil: TB = 86°9'9,43\"\n\nKlik Simpan ke TB."
                                 }
                             ]
                         },
-
                         tinggiHilal: {
                             title: "Tinggi Hilal Hakiki & Mar'i",
                             sub: "Dengan koreksi paralaks, SD, refraksi",
@@ -2809,99 +2803,95 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                                     formula: "sin⁻¹( sin LT × sin DB + cos LT × cos DB × cos TB )",
                                     storeVar: "H",
                                     storeLabel: "Tinggi Hilal Hakiki",
-                                    help: "Keterangan simbol:\n• LT = lintang tempat = −6°51'50,22\"\n• DB = deklinasi Bulan = −6°33'50,65\"\n• TB = sudut waktu Bulan = 86°9'9,43\"\n\nSubstitusi siap hitung:\nsin⁻¹( sin(−6°51'50,22\") × sin(−6°33'50,65\") + cos(−6°51'50,22\") × cos(−6°33'50,65\") × cos(86°9'9,43\") )\n\nSetelah = , tekan SHIFT+°'″ .\nHasil: H = 4°34'46,42\""
+                                    help: "Keterangan simbol:\n• LT = lintang tempat\n• DB = deklinasi Bulan (langkah sebelumnya)\n• TB = sudut waktu Bulan (langkah sebelumnya)"
                                 },
-                                                             {
+                                {
                                     title: "Paralaks",
                                     formula: "HP × cos H",
                                     storeVar: "PRLX",
                                     storeLabel: "Paralaks",
-                                    help: "Keterangan simbol:\n. HP = horizontal parallax = 1°0'17,84\" . (interpolasi Jam A & Jam B GMT, sama alasannya dengan interpolasi AR/DB)\n. H = tinggi hilal hakiki = 4°34'46,42\"\n\n. Substitusi siap hitung:\n1°0'17,84\" × cos(4°34'46,42\")\n\n. Hasil: Paralaks = 1°0'6,29\""
+                                    help: "Keterangan simbol:\n• HP = horizontal parallax (interpolasi Jam A & Jam B GMT, sama alasannya dengan interpolasi AR/DB)\n• H = tinggi hilal hakiki (langkah sebelumnya)\n\nContoh (terbenam 10j 50m 39,89d GMT):\n• HP pukul 10:00 GMT = 1°0'17\"\n• HP pukul 11:00 GMT = 1°0'18\"\n• C = 0j 50m 39,89d\n\nContoh interpolasi HP:\n1°0'17\" − (1°0'17\" − 1°0'18\") × 0j 50m 39,89d ÷ 1 = 1°0'17,84\"\n\nContoh perhitungan paralaks (dengan H = 4°34'46,42\"):\n1°0'17,84\" × cos(4°34'46,42\") = 1°0'6,29\"\n\nKlik Simpan ke PRLX."
                                 },
-                                                               {
+                                {
                                     title: "SD Bulan (SDB)",
                                     formula: "A − (A − B) × C ÷ 1",
                                     storeVar: "SDB",
                                     storeLabel: "SD Bulan",
-                                    help: "MENGAPA JAM 10 & JAM 11?\nWaktu terbenam = 10j 50m 39,89d GMT → Jam A = 10:00, Jam B = 11:00 GMT. Kalau waktu terbenam berbeda, jam interpolasi menyesuaikan.\n\nKeterangan simbol:\n• A = SD Bulan pukul 10:00 GMT = 0°16'25,70\"\n• B = SD Bulan pukul 11:00 GMT = 0°16'25,96\"\n• C = fraksi waktu dari Jam A ke terbenam = 0j 50m 39,89d\n\nSubstitusi siap hitung:\n0°16'25,70\" − (0°16'25,70\" − 0°16'25,96\") × 0j 50m 39,89d ÷ 1\n\nHasil: SDB = 0°16'25,92\""
+                                    help: "Atau bisa juga pakai tombol INTERP\n\nJam A dan Jam B adalah dua jam bulat GMT yang mengapit waktu terbenam.\n\nKeterangan simbol:\n• A = SD Bulan pada Jam A\n• B = SD Bulan pada Jam B\n• C = fraksi waktu dari Jam A ke terbenam\n\nContoh (terbenam 10j 50m 39,89d GMT):\n• A = SD Bulan pukul 10:00 GMT = 0°16'25,70\"\n• B = SD Bulan pukul 11:00 GMT = 0°16'25,96\"\n• C = 0j 50m 39,89d\n\nContoh substitusi siap hitung:\n0°16'25,70\" − (0°16'25,70\" − 0°16'25,96\") × 0j 50m 39,89d ÷ 1\n\nSetelah = , tekan SHIFT+°'″ .\nHasil: SDB ≈ 0°16'25,92\"\n\nKlik Simpan ke SDB."
                                 },
                                 {
                                     title: "Refraksi",
                                     formula: "refraksi h dari tabel refraksi / 60",
                                     storeVar: "REF",
                                     storeLabel: "Refraksi",
-                                    help: "Contoh: Refraksi = 0°10'18\" (dari tabel: 10,3' ÷ 60). 10,3 diperoleh dari tabel refraksi karena misalnya h hakikinya 4d 34m 46,42s. "
+                                    help: "Cari nilai refraksi pada tabel refraksi berdasarkan tinggi hilal hakiki (H), kemudian bagi hasilnya dengan 60 untuk mendapat nilai dalam derajat."
                                 },
-
                                 {
                                     title: "Dip",
                                     formula: "1.76√mdpl/ 60",
                                     storeVar: "DipH",
                                     storeLabel: "Dip Hilal",
-                                    help: "Contoh: Dip-nya 115 mdpl, maka 1.76√115/ 60 kemudian tekan hasilnya. "
+                                    help: "Masukkan nilai ketinggian tempat (mdpl) ke dalam rumus. Hasil berupa kerendahan ufuk dalam derajat."
                                 },
-                                                               {
+                                {
                                     title: "Tinggi Hilal Mar'i (HM)",
                                     formula: "H − PRLX + SDB + REF + DipH",
                                     storeVar: "HM",
                                     storeLabel: "Tinggi Hilal Mar'i",
-                                    help: "Keterangan simbol:\n• Contohnya: H = tinggi hilal hakiki = 4°34'46,42\"\n• Paralaks = 1°0'6,29\"\n• SDB = 0°16'25,92\"\n• Refraksi = 0°10'18\" (dari tabel: 10,3' ÷ 60)\n• Dip = 0°5'33,94\"\n\nSubstitusi siap hitung:\n4°34'46,42\" − 1°0'6,29\" + 0°16'25,92\" + 0°10'18\" + 0°5'33,94\"\n\nHasil: HM = 4°6'57,99\""
+                                    help: "Keterangan simbol:\n• H = tinggi hilal hakiki (langkah sebelumnya)\n• PRLX = paralaks (langkah sebelumnya)\n• SDB = SD Bulan (langkah sebelumnya)\n• REF = refraksi (langkah sebelumnya)\n• DipH = Dip Hilal (langkah sebelumnya)"
                                 }
                             ]
                         },
-
                         mukus: {
                             title: "Mukus & Terbenam Bulan",
                             sub: "Lama Bulan di atas ufuk",
                             steps: [
-                                                              {
+                                {
                                     title: "Mukus Bulan",
                                     formula: "HM ÷ 15",
                                     storeVar: "MKS",
                                     storeLabel: "Mukus Bulan",
-                                    help: "Keterangan simbol:\n• HM = tinggi hilal mar'i = 4°6'57,99\"\n\nSubstitusi siap hitung:\n4°6'57,99\" ÷ 15\n\nHasil: 0j 16m 27,87d = 16 menit."
+                                    help: "Keterangan simbol:\n• HM = tinggi hilal mar'i (langkah sebelumnya)\n\nHasilnya dalam jam desimal."
                                 },
-                                                                {
+                                {
                                     title: "Waktu Terbenam Bulan",
                                     formula: "Terbenam Matahari + Mukus",
                                     storeVar: "WTB",
                                     storeLabel: "Waktu Terbenam Bulan",
-                                    help: "Keterangan simbol:\n• TerbenamMatahari = 17j 50m 39,89d\n• Mukus = 0j 16m 27,87d\n\nSubstitusi siap hitung:\n17j 50m 39,89d + 0j 16m 27,87d\n\nHasil: 18j 7m 7,76d WIB"
+                                    help: "Keterangan simbol:\n• TerbenamMatahari = waktu terbenam Matahari (langkah sebelumnya)\n• Mukus = mukus Bulan (langkah sebelumnya)"
                                 }
                             ]
                         },
-
                         azimut: {
                             title: "Azimut Bulan & Matahari",
                             sub: "Posisi terhadap titik Barat",
                             steps: [
-                                                              {
+                                {
                                     title: "Azimut Matahari (AZM)",
                                     formula: "tan⁻¹( 1 ÷ ( −sin LT ÷ tan TM + cos LT × tan DM ÷ sin TM ) )",
                                     storeVar: "Az_M",
                                     storeLabel: "Azimut Matahari",
-                                    help: "Keterangan simbol:\n• LT = lintang tempat = −6°51'50,22\"\n• TM = sudut waktu Matahari = 91°53'41,03\"\n• DM = deklinasi Matahari = −7°46'41\"\n\nSubstitusi siap hitung:\ntan⁻¹( 1 ÷ ( −sin(−6°51'50,22\") ÷ tan(91°53'41,03\") + cos(−6°51'50,22\") × tan(−7°46'41\") ÷ sin(91°53'41,03\") ) )\n\nSetelah = , tekan SHIFT+°'″ .\nHasil: AZM = −82°3'1,91\""
+                                    help: "Keterangan simbol:\n• LT = lintang tempat\n• TM = sudut waktu Matahari\n• DM = deklinasi Matahari\n\nSetelah = , tekan SHIFT+°'″ ."
                                 },
-                                                              {
+                                {
                                     title: "Azimut Bulan (AZB)",
                                     formula: "tan⁻¹( 1 ÷ ( −sin LT ÷ tan TB + cos LT × tan DB ÷ sin TB ) )",
                                     storeVar: "Az_B",
                                     storeLabel: "Azimut Bulan",
-                                    help: "Keterangan simbol:\n• LT = lintang tempat = −6°51'50,22\"\n• TB = sudut waktu Bulan = 86°9'9,43\"\n• DB = deklinasi Bulan = −6°33'50,65\"\n\nSubstitusi siap hitung:\ntan⁻¹( 1 ÷ ( −sin(−6°51'50,22\") ÷ tan(86°9'9,43\") + cos(−6°51'50,22\") × tan(−6°33'50,65\") ÷ sin(86°9'9,43\") ) )\n\nHasil: AZB = −83°55'22,52\""
+                                    help: "Keterangan simbol:\n• LT = lintang tempat\n• TB = sudut waktu Bulan\n• DB = deklinasi Bulan"
                                 },
-                                                               {
+                                {
                                     title: "Elongasi / Jarak sudut Bulan ke Matahari",
                                     formula: "cos⁻¹( sin hm × sin hb + cos hm × cos hb × cos(Azm − Azb) )",
                                     storeVar: "ELO",
                                     storeLabel: "Elongasi",
-                                    help: "Keterangan simbol:\n• hm = tinggi Matahari saat terbenam (h Matahari)\n• hb = tinggi hakiki Bulan / tinggi hilal hakiki\n• Azm = Azimut Matahari (hasil langkah AZM)\n• Azb = Azimut Bulan (hasil langkah AZB)\n\nSubstitusi siap hitung (contoh):\nhm = −0°56'12,57\"\nhb = 4°34'46,42\"\nAzm = −82°3'1,91\"\nAzb = −83°55'22,52\"\n\ncos⁻¹( sin(−0°56'12,57\") × sin(4°34'46,42\") + cos(−0°56'12,57\") × cos(4°34'46,42\") × cos(−82°3'1,91\" − (−83°55'22,52\")) )\n\nLangkah kalkulator:\nShift cos ( sin hm × sin hb + cos hm × cos hb × cos(Azm − Azb) ) = shift º'″\n\nHasil: E = 5°49'29,83\""
+                                    help: "Keterangan simbol:\n• hm = tinggi Matahari saat terbenam (H Matahari)\n• hb = tinggi hakiki Bulan / tinggi hilal hakiki\n• Azm = Azimut Matahari (langkah AZM)\n• Azb = Azimut Bulan (langkah AZB)\n\nLangkah kalkulator:\nShift cos ( sin hm × sin hb + cos hm × cos hb × cos(Azm − Azb) ) = shift º'″\n\nKlik Simpan ke ELO."
                                 }
                             ]
                         }
                     }
                 }
             };
-
             const falakNav = {
                 view: 'categories',
                 categoryKey: null,

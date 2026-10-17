@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'astrocalc-v2';
+const CACHE_VERSION = 'astrocalc-v3';
 const FILES = [
   './',
   './index.html',

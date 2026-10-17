@@ -1,7 +1,9 @@
 {
   "name": "Astronomical Scientific Calculator",
   "short_name": "AstroCalc",
+  "id": "./",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#04070d",
   "theme_color": "#0e577b",

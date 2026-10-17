@@ -7,8 +7,8 @@ const FILES = [
   './index.html',
   './manifest.json',
   './test-calculator.js',
-  './icons/icon-192.png',
-  './icons/icon-512.png'
+  './icons/192.png',
+  './icons/512.png'
 ];
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {

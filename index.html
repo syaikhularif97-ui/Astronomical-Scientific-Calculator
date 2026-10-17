@@ -66,6 +66,9 @@
             border-bottom: 2px solid #000000;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             border-radius: 20px 20px 0 0;
+            position: sticky;
+            top: 0;
+            z-index: 20;
         }
 
         .header-left {
@@ -127,7 +130,7 @@
             box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.3);
             font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
             position: sticky;
-            top: 0;
+            top: var(--calc-header-h, 89px);
             z-index: 10;
         }
 
@@ -365,6 +368,9 @@
             .logo-container img {
                 height: 45px;
                 width: 45px;
+            }
+            .screen {
+                top: var(--calc-header-h, 79px);
             }
         }
 
@@ -3238,12 +3244,14 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                                 const headerRect = falakHeaderEl.getBoundingClientRect();
                                 const viewportHeight = window.innerHeight;
                                 const screenEl = document.querySelector('.screen');
+                                const calcHeaderEl = document.querySelector('.calc-header');
                                 const screenHeight = screenEl
                                     ? Math.min(screenEl.getBoundingClientRect().height, viewportHeight * 0.35)
                                     : 0;
+                                const stickyOffset = (calcHeaderEl ? calcHeaderEl.offsetHeight : 0) + screenHeight;
 
                                 if (headerRect.top > viewportHeight - 120) {
-                                    const targetY = window.scrollY + headerRect.top - screenHeight - 20;
+                                    const targetY = window.scrollY + headerRect.top - stickyOffset - 20;
                                     window.scrollTo({
                                         top: Math.max(0, targetY),
                                         behavior: reducedMotion ? 'auto' : 'smooth'
@@ -3330,8 +3338,20 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                 });
             }
 
-                       // ===== INISIALISASI =====
+            // ===== INISIALISASI =====
             updateDisplay();
+            function updateCalcHeaderHeight() {
+                const headerEl = document.querySelector('.calc-header');
+                if (headerEl) {
+                    const h = headerEl.offsetHeight;
+                    document.documentElement.style.setProperty('--calc-header-h', h + 'px');
+                }
+            }
+            updateCalcHeaderHeight();
+            window.addEventListener('resize', updateCalcHeaderHeight);
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(updateCalcHeaderHeight);
+            }
 
             // ===== TEST BRIDGE (hanya aktif ?test=1) =====
             if (/[?&]test=1/.test(location.search)) {

@@ -1477,9 +1477,7 @@
                             <br>Backspace: sama dengan DEL
                             <br>Escape: sama dengan AC
                         </li>
-                        <li><strong>Presisi Perhitungan:</strong> Kalkulator menggunakan presisi floating-point
-                            JavaScript
-                            (sekitar 15-17 digit signifikan).</li>
+                        <li><strong>Presisi Perhitungan:</strong>Mesin komputasi menggunakan Decimal.js dengan pengaturan presisi desimal sebesar 60 digit. Fungsi sinus dan kosinus dihitung menggunakan pendekatan Deret Taylor, sedangkan fungsi arctan menggunakan iterasi Newton-Raphson dengan perkiraan awal dari fungsi Math.atan JavaScript. Tampilan DMS membulatkan detik busur pada hasil yang ditampilkan. Penggunaan metode numerik tersebut ditujukan untuk mendukung perhitungan desimal dengan presisi tinggi.</li>
                         <li><strong>Error Handling:</strong> Jika terjadi error (misalnya pembagian nol, domain error),
                             layar akan menampilkan "Error". Tekan AC untuk reset.</li>
                     </ul>
@@ -2715,7 +2713,7 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                     }
                 },
                 awalBulan: {
-                    title: "IV. Awal Bulan Qamariyah",
+                    title: "III. Awal Bulan Qamariyah",
                     items: {
                         sabaq: {
                             title: "Sabaq Matahari & Sabaq Bulan",

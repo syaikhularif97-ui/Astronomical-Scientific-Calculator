@@ -2715,20 +2715,22 @@ document.getElementById('btnAlpha').setAttribute('aria-pressed', String(state.al
                 awalBulan: {
                     title: "III. Awal Bulan Qamariyah",
                     items: {
-                        sabaq: {
+                       sabaq: {
                             title: "Sabaq Matahari & Sabaq Bulan",
                             steps: [
                                 {
                                     title: "Sabaq Matahari (SM)",
+                                    formula: "abs(A − B)",
                                     storeVar: "SM",
                                     storeLabel: "Sabaq Matahari",
-                                    help: "Rumus:\nSM = ELM Jam 01 − ELM Jam 24.\n\nELM Jam 01 adalah ELM pukul 01:00 GMT, dan ELM Jam 24 adalah ELM pukul 24:00 GMT (hari berikutnya).\n\nCara kalkulator:\n1. Ketik: ELM_01° − ELM_24° (dalam format DMS)\n2. Tekan =\n3. Tekan SHIFT+°'″ untuk konversi ke DMS\n4. Klik Simpan ke SM\n\nCatat nilai SM untuk dipakai di langkah Ijtimak."
+                                    help: "SM = |ELM Jam 01 − ELM Jam 24|\n\nNilai selalu POSITIF karena abs().\n\nCara:\n1. Klik 'Gunakan Rumus'\n2. Ganti A = ELM Jam 01, B = ELM Jam 24 (format DMS)\n3. Tekan =\n4. SHIFT+°'″ → Simpan ke SM"
                                 },
                                 {
                                     title: "Sabaq Bulan (SB)",
+                                    formula: "abs(A − B)",
                                     storeVar: "SB",
                                     storeLabel: "Sabaq Bulan",
-                                    help: "Rumus:\nSB = ALB Jam 01 − ALB Jam 24.\n\nALB Jam 01 adalah ALB pukul 01:00 GMT, dan ALB Jam 24 adalah ALB pukul 24:00 GMT (hari berikutnya).\n\nCara kalkulator:\n1. Ketik: ALB_01° − ALB_24° (dalam format DMS)\n2. Tekan =\n3. Tekan SHIFT+°'″ untuk konversi ke DMS\n4. Klik Simpan ke SB\n\nCatat nilai SB untuk dipakai di langkah Ijtimak."
+                                    help: "SB = |ALB Jam 01 − ALB Jam 24|\n\nNilai selalu POSITIF karena abs().\n\nCara:\n1. Klik 'Gunakan Rumus'\n2. Ganti A = ALB Jam 01, B = ALB Jam 24 (format DMS)\n3. Tekan =\n4. SHIFT+°'″ → Simpan ke SB"
                                 }
                             ]
                         },
